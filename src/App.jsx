@@ -13,6 +13,8 @@ function App() {
     duration: 0
   })
 
+  const inputIsValid = dataInvestment.duration > 0
+
   function initialInvesmentHandler(newValue) {
     setDataInvestment(value => {
       const updateInitialValue = { ...value, initialInvesment: !newValue ? 0 : +newValue };
@@ -51,7 +53,7 @@ function App() {
         expectedReturnHandler={(value) => expctedReturnHandler(value)}
         durationHandler={(value) => durationHandler(value)}
       />
-      <TablePrediction data={dataInvestment} />
+      {inputIsValid ? <TablePrediction data={dataInvestment} /> : <p className='center'>Please enter duration greater than 0</p>}
     </div>
   )
 }
