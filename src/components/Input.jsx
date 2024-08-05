@@ -11,7 +11,7 @@ export default function Input({ labelName, onChangeInput }) {
     return (
         <div>
             <label>{labelName}</label>
-            <input type="number" value={value} onChange={onChangedHandler} />
+            <input type="number" value={value} onChange={onChangedHandler} required />
         </div>
     )
 }

@@ -13,9 +13,11 @@ function App() {
     duration: 0
   })
 
+  const inputIsValid = dataInvestment.duration > 0
+
   function initialInvesmentHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, initialInvesment: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, initialInvesment: !newValue ? 0 : +newValue };
       return updateInitialValue
     })
 
@@ -23,21 +25,21 @@ function App() {
 
   function annualInvesmentHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, annualInvesment: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, annualInvesment: !newValue ? 0 : +newValue };
       return updateInitialValue;
     })
   }
 
   function expctedReturnHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, expctedReturn: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, expctedReturn: !newValue ? 0 : +newValue };
       return updateInitialValue;
     })
   }
 
   function durationHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, duration: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, duration: !newValue ? 0 : +newValue };
       return updateInitialValue;
     })
   }
@@ -51,7 +53,7 @@ function App() {
         expectedReturnHandler={(value) => expctedReturnHandler(value)}
         durationHandler={(value) => durationHandler(value)}
       />
-      <TablePrediction data={dataInvestment} />
+      {inputIsValid ? <TablePrediction data={dataInvestment} /> : <p className='center'>Please enter duration greater than 0</p>}
     </div>
   )
 }
