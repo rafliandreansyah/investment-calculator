@@ -15,7 +15,7 @@ function App() {
 
   function initialInvesmentHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, initialInvesment: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, initialInvesment: !newValue ? 0 : +newValue };
       return updateInitialValue
     })
 
@@ -23,21 +23,21 @@ function App() {
 
   function annualInvesmentHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, annualInvesment: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, annualInvesment: !newValue ? 0 : +newValue };
       return updateInitialValue;
     })
   }
 
   function expctedReturnHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, expctedReturn: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, expctedReturn: !newValue ? 0 : +newValue };
       return updateInitialValue;
     })
   }
 
   function durationHandler(newValue) {
     setDataInvestment(value => {
-      const updateInitialValue = { ...value, duration: !newValue ? 0 : parseInt(newValue) };
+      const updateInitialValue = { ...value, duration: !newValue ? 0 : +newValue };
       return updateInitialValue;
     })
   }
